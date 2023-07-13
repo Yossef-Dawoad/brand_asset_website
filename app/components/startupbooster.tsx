@@ -77,25 +77,21 @@ const StartupBooster: React.FC = () => {
 
     ////////////////////////// condtioning with server result //////////////////////
     let displyedElement = null;
-    if (hasResult) {
-        displyedElement =
-            <Results
-                tagline={tagline}
-                keywords={keywords}
-                onBackClick={onReset}
-                prompt={prompt}
-            />
-    } else {
-        displyedElement =
-            <Form
-                pormpt={prompt}
-                setPrompt={setPrompt}
-                onSubmit={onSubmit}
-                onReadData={onReadData}
-                isFetchingResult={isfetchingResult}
-                characterLimit={CHARCTER_LIMIT}
-            />
-    }
+    displyedElement = hasResult ?
+        <Results
+            tagline={tagline}
+            keywords={keywords}
+            onBackClick={onReset}
+            prompt={prompt}
+        />
+        : <Form
+            pormpt={prompt}
+            setPrompt={setPrompt}
+            onSubmit={onSubmit}
+            onReadData={onReadData}
+            isFetchingResult={isfetchingResult}
+            characterLimit={CHARCTER_LIMIT}
+        />
 
     return (
         <>
