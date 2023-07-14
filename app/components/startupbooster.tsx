@@ -1,13 +1,18 @@
 'use client';
 
+
+import Image from 'next/image';
+import logo from '@/public/websitelogo.svg';
 import React from "react";
 import Form from "./form";
 import Results from "./result";
 const StartupBooster: React.FC = () => {
 
-    // const LOCAL_HOST_URL: string = 'http://localhost:8002';
-    const HOST_URL: string = 'https://startup_booster-1-o7910799.deta.app';
-    const ENDPOINT_2: string = "api/v2/businesses/1"; // add '/' at the end give cors error
+    const LOCAL_DEV = true;
+    const HOST_URL: string = LOCAL_DEV ?
+        'http://localhost:8002' :
+        'https://startup_booster-1-o7910799.deta.app';
+    const ENDPOINT_2: string = "api/v2/businesses"; // add '/' at the end give cors error
     const CHARCTER_LIMIT: number = 22;
 
     const [prompt, setPrompt] = React.useState("");
@@ -25,7 +30,7 @@ const StartupBooster: React.FC = () => {
             setIsfetchingResult(true);
             const response = await fetch(`${HOST_URL}/${ENDPOINT_2}`);
             const data = await response.json();
-            onResult(data);
+            onReceiveResult(data);
             console.log(data);
         } catch (error) {
             console.error(error);
@@ -53,6 +58,7 @@ const StartupBooster: React.FC = () => {
             const response = await fetch(`${HOST_URL}/${ENDPOINT_2}`, options);
             const data = await response.json();
             console.log(data);
+            onReceiveResult(data);
         } catch (error) {
             console.error(error);
         }
@@ -60,7 +66,7 @@ const StartupBooster: React.FC = () => {
 
 
     ////////////////////////// on response from the endpoint //////////////////////
-    const onResult = (data: any) => {
+    const onReceiveResult = (data: any) => {
         settagline(data.snippet);
         setkeywords(data.keywords);
         setHasResult(true);
@@ -93,11 +99,26 @@ const StartupBooster: React.FC = () => {
             characterLimit={CHARCTER_LIMIT}
         />
 
+    const gradientTextStyle =
+        "text-white text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600 font-light w-fit mx-auto";
     return (
-        <>
-            <h1>Stratup Booster</h1>
-            {displyedElement}
-        </>
+        <div className="h-screen flex">
+            <div className="max-w-md m-auto p-2">
+                <div className="bg-slate-800  p-6 rounded-md text-white">
+                    <div className="text-center my-6">
+                        <Image src={logo} width={42} height={42} alt='website logo' className="mx-auto" />
+                        <h1 className={gradientTextStyle + " text-3xl"}>
+                            Stratup Booster
+                        </h1>
+                        <div className={gradientTextStyle}>
+                            Your AI branding Assistant
+                        </div>
+                    </div>
+
+                    {displyedElement}
+                </div>
+            </div>
+        </div>
     );
 };
 

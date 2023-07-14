@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Startup Booster | AI Generated Marketings',
   description: 'Create a powerful start-up branding campaign with creative names, catchy taglines, relevant keywords and profitable revenue streams for your business or product',
   icons: ['/favicon.ico'],
-
+  assets: ['/favicon.ico', '/logo192.png', '/logo512.png'],
   // adding og for better meta with social media integrations 
   openGraph: {
     siteName: 'Startup Booster',
