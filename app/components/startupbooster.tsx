@@ -8,7 +8,7 @@ import Form from "./form";
 import Results from "./result";
 const StartupBooster: React.FC = () => {
 
-    const LOCAL_DEV = true;
+    const LOCAL_DEV = false;
     const HOST_URL: string = LOCAL_DEV ?
         'http://localhost:8002' :
         'https://startup_booster-1-o7910799.deta.app';
