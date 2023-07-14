@@ -7,15 +7,14 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
 
   //[TODO] SEO OPTIMIZATION 
-  title: 'Startup Booster | AI Generated Marketings',
+  title: 'Startup Booster | AI Generated Marketing Campaign',
   description: 'Create a powerful start-up branding campaign with creative names, catchy taglines, relevant keywords and profitable revenue streams for your business or product',
   icons: ['/favicon.ico'],
-  assets: ['/favicon.ico', '/logo192.png', '/logo512.png'],
   // adding og for better meta with social media integrations 
   openGraph: {
     siteName: 'Startup Booster',
-    title: 'Startup Booster--AI Generated Marketing Campaign',
-    url: 'https://startupbooster-theta.vercel.app',
+    title: 'Startup Booster | AI Generated Marketing Campaign',
+    url: 'https://startupboosterai.vercel.app',
     description: 'Create a powerful start-up branding campaign with creative names, catchy taglines, relevant keywords and profitable revenue streams for your business or product',
     tags: ['AI', 'LLM', 'ChatGPT', 'Start-UP', 'Boost', 'AI-Generated'],
     images: [{
