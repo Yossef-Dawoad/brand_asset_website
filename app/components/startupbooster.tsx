@@ -126,7 +126,10 @@ const StartupBooster: React.FC = () => {
               alt="website logo"
               className="mx-auto"
             />
-            <h1 className={gradientTextStyle + " text-3xl"}>Stratup Booster</h1>
+            <h1 className={gradientTextStyle + " text-3xl"}>
+              Stratup Booster{" "}
+              <span className="text-sm rounded-md bg-red-500 p-1">ALPHA</span>
+            </h1>
             <div className={gradientTextStyle}>Your AI branding Assistant</div>
           </div>
 
